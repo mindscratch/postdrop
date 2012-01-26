@@ -1,0 +1,25 @@
+
+<h3><%= @user.name %>,</h3>
+
+<p>
+  Welcome to Post Drop, your one stop shop for submitting status updates, tweets and messages while maintaining your own copy.
+</p>
+
+<% unless @provider.nil? %>
+  <p>
+    You created your Post Drop account using your <%= @provider %> account. In the event that <%= @provider %> isn't available at the time
+    you try to login to Post Drop, we've generated a random password that you can use so you can keep on dropping your posts!
+  </p>
+  <p>
+    <strong>Email:</strong>&nbsp;&nbsp;<%= @user.email %><br />
+    <strong>Password:</strong>&nbsp;&nbsp;IMPLEMENT THIS PART, maybe just provide a link to reset the password
+  </p>
+<% else %>
+  <p>
+    Your Post Drop account has been created successfully!
+  </p>
+<% end %>
+
+<p>
+  Happy Post Dropping!
+</p>
