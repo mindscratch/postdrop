@@ -3,7 +3,6 @@ class UserMailer < ActionMailer::Base
 
   def registration_confirmation(user)
     @user = user
-    @password = password
     if user.authentications && user.authentications.count > 0
       provider = user.authentications.first.provider
       unless provider == 'identity'
