@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: ENV['POSTDROP_MAIL_USERNAME'] || 'no-reply@postdrop.heroku.com'
 
   def registration_confirmation(user)
     @user = user
