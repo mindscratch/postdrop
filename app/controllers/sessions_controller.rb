@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
     user.save unless user.changes.empty?
     user.authentications << auth
 
+    # TODO only send mail on new registration
     UserMailer.registration_confirmation(user).deliver
 
     session[:user_id] = user.id

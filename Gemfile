@@ -25,3 +25,5 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 
 gem 'fb_graph', '~> 2.3.0'
+
+gem 'newrelic_rpm'

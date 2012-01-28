@@ -113,6 +113,7 @@ GEM
       rspec (~> 2)
     multi_json (1.0.4)
     multipart-post (1.1.4)
+    newrelic_rpm (3.3.1)
     nokogiri (1.5.0)
     oauth (0.4.5)
     oauth2 (0.5.1)
@@ -233,6 +234,7 @@ DEPENDENCIES
   launchy (>= 2.0.5)
   mongoid (>= 2.2.3)
   mongoid-rspec (>= 1.4.4)
+  newrelic_rpm
   omniauth-facebook
   omniauth-google-oauth2
   omniauth-identity
