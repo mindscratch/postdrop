@@ -1,5 +1,7 @@
  PostDrop::Application.routes.draw do
 
+  resources :posts
+
   root :to => "sessions#new"
 
   match "/auth/:provider/callback" => "sessions#create"

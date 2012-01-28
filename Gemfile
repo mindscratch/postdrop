@@ -23,3 +23,5 @@ gem 'omniauth-identity'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+
+gem 'fb_graph', '~> 2.3.0'

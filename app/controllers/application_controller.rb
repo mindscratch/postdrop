@@ -4,9 +4,17 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :current_auth
 
+  before_filter :login_required
+
   #######
   private
   #######
+
+  def login_required
+    if current_user.nil? && params[:controller] != "sessions"
+      redirect_to root_url, alert: 'You must login first.'
+    end
+  end
 
   def current_user
     begin

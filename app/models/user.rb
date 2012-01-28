@@ -5,6 +5,7 @@ class User
   include OmniAuth::Identity::Models::Mongoid
 
   has_many :authentications
+  has_many :posts
 
   field :email, type: String
   field :name, type: String

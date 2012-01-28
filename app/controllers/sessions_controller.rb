@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
 
   def create
     omniauth_hash = env['omniauth.auth']
+
     auth = Authentication.from_omniauth(omniauth_hash)
     user = User.from_omniauth(omniauth_hash)
 
