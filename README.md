@@ -14,3 +14,6 @@ To be honest, this application is self-serving. Sometimes I tweet, sometimes I p
 
 * things are starting to take shape, time to write some specs and stop pretending like I'm just exploring.
 * find any TODO's in the code and...do them.
+* enable ability to update existing post
+** when a post is edited or deleted, update or delete it from providers (facebook, twitter, etc) if possible.
+ * work on open issues
