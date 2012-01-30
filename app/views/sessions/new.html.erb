@@ -42,14 +42,21 @@
   </p>
 
   <%= form_tag "/auth/identity/callback" do %>
-    <div class="field">
-      <%= label_tag :auth_key, "Email" %><br>
-      <%= text_field_tag :auth_key %>
+    <div class="clearfix">
+      <%= label_tag :auth_key, "Email" %>
+      <div class="input">
+        <%= text_field_tag :auth_key, nil, class: "xlarge", size: 30 %>
+      </div>
     </div>
-    <div class="field">
-      <%= label_tag :password %><br>
-      <%= password_field_tag :password %>
+
+    <div class="clearfix">
+      <%= label_tag :password, "Password" %>
+      <div class="input">
+        <%= password_field_tag :password, nil %>
+      </div>
     </div>
-    <div class="actions"><%= submit_tag "Login" %></div>
+    <div class="actions">
+      <%= submit_tag "Login", class: "btn primary" %>
+    </div>
   <% end %>
 <% end %>

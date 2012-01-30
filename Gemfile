@@ -16,8 +16,9 @@ gem "launchy", ">= 2.0.5", :group => :test
 gem "bson_ext", ">= 1.3.1"
 gem "mongoid", ">= 2.2.3"
 
-
 gem 'bcrypt-ruby', '~> 3.0.0'
+
+gem 'twitter-bootstrap-rails'
 
 gem 'omniauth-identity'
 gem 'omniauth-twitter'
@@ -25,5 +26,6 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 
 gem 'fb_graph', '~> 2.3.0'
+gem 'twitter', '~> 2.1.0'
 
 gem 'newrelic_rpm'

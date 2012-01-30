@@ -1,29 +1,39 @@
 <%= form_tag "/auth/identity/register" do %>
-    <% if @identity && @identity.errors.any? %>
-          <div class="error_messages">
-                  <h2><%= pluralize(@identity.errors.count, "error") %> prohibited this account from being saved:</h2>
-                        <ul>
-                                <% @identity.errors.full_messages.each do |msg| %>
-                                          <li><%= msg %></li>
-                                                <% end %>
-                                                      </ul>
-                                                          </div>
-                                                            <% end %>
-                                                              <div class="field">
-                                                                    <%= label_tag :name %><br>
-                                                                        <%= text_field_tag :name, @identity.try(:name) %>
-                                                                          </div>
-                                                                            <div class="field">
-                                                                                  <%= label_tag :email %><br>
-                                                                                      <%= text_field_tag :email, @identity.try(:email) %>
-                                                                                        </div>
-                                                                                          <div class="field">
-                                                                                                <%= label_tag :password %><br>
-                                                                                                    <%= password_field_tag :password %>
-                                                                                                      </div>
-                                                                                                        <div class="field">
-                                                                                                              <%= label_tag :password_confirmation %><br>
-                                                                                                                  <%= password_field_tag :password_confirmation %>
-                                                                                                                    </div>
-                                                                                                                      <div class="actions"><%= submit_tag "Register" %></div>
-                                                                                                                    <% end %>
+  <% if @identity && @identity.errors.any? %>
+    <div class="error_messages">
+      <h2><%= pluralize(@identity.errors.count, "error") %> prohibited this account from being saved:</h2>
+      <ul>
+        <% @identity.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="clearfix">
+    <%= label_tag :name, "Name" %>
+    <div class="input">
+      <%= text_field_tag :name, @identity.try(:name), class: "xlarge", size: 30 %>
+    </div>
+  </div>
+  <div class="clearfix">
+    <%= label_tag :email, "Email" %>
+    <div class="input">
+      <%= text_field_tag :email, @identity.try(:email), class: "xlarge", size: 30 %>
+    </div>
+  </div>
+  <div class="clearfix">
+    <%= label_tag :password, "Password" %>
+    <div class="input">
+      <%= password_field_tag :password, nil, class: "xlarge", size: 30 %>
+    </div>
+  </div>
+  <div class="clearfix">
+    <%= label_tag :password_confirmation, "Password" %>
+    <div class="input">
+      <%= password_field_tag :password_confirmation, nil, class: "xlarge", size: 30 %>
+    </div>
+  </div>
+  <div class="actions">
+      <%= submit_tag "Register", class: "btn primary" %>
+  </div>
+<% end %>
