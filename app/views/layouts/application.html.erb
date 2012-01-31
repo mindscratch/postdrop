@@ -27,13 +27,14 @@
 
 
   <div class="container-fluid">
-      <% flash.each do |name, msg| %>
-        <div class="alert-message <%= name %>">
-          <p><%= msg %></p>
-        </div>
-      <% end %>
-      <%= yield %>
-
+    <% flash.each do |name, msg| %>
+      <div class="alert-message <%= name %>">
+        <p><%= msg %></p>
+      </div>
+    <% end %>
+  </div>
+  <div class="container-fluid">
+    <%= yield %>
   </div>
 </body>
 </html>
