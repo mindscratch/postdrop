@@ -50,7 +50,7 @@ class PostsController < ApplicationController
         result = PostSubmitters.submit_post @post, current_user, ['facebook']
         logger.debug "submitted post, result=#{result}"
 
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to @post, success: 'Post was successfully created.' }
         format.json { render json: @post, status: :created, location: @post }
       else
         format.html { render action: "new" }
@@ -66,7 +66,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.html { redirect_to @post, success: 'Post was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

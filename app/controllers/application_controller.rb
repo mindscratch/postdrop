@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
   def login_required
     if current_user.nil? && params[:controller] != "sessions"
-      redirect_to root_url, alert: 'You must login first.'
+      redirect_to root_url, error: 'You must login first.'
     end
   end
 
