@@ -17,21 +17,26 @@ skip_before_filter :login_required
 
     # TODO only send mail on new registration
     if new_user
+      flash[:success] = "Welcome to Post Drop!"
       UserMailer.registration_confirmation(user).deliver
+    else
+      flash[:info] = "Welcome back!"
     end
 
     session[:user_id] = user.id
     session[:auth_id] = auth.id
-    redirect_to root_url, success: 'Signed in!'
+    redirect_to root_url
   end
 
   def destroy
     session[:user_id] = nil
     session[:auth_id] = nil
-    redirect_to root_url, info: 'Signed out!'
+    flash[:info] = 'Signed out!'
+    redirect_to root_url
   end
 
   def failure
-    redirect_to root_url, error: 'Authentication failed, please try again.'
+    flash[:error] = 'Authentication failed, please try again.'
+    redirect_to root_url
   end
 end

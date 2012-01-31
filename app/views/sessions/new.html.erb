@@ -14,49 +14,51 @@
   </p>
   <p><%= link_to "Log out", signout_path %></p>
 <% else %>
+
+  <div class="sidebar">
   <h1>Sign In</h1>
 
-  <p><strong>Sign in through one of these services:</strong></p>
+    <div class="auth_providers">
 
-  <div class="auth_providers">
-
-    <!--
-    <a href="/auth/twitter" class="auth_provider">
-      <%= image_tag "twitter_64.png", size: "64x64", alt: "Twitter" %>
-      Twitter
-    </a>
-    -->
-    <a href="/auth/facebook" class="auth_provider">
-      <%= image_tag "facebook_64.png", size: "64x64", alt: "Facebook" %>
-      Facebook
-    </a>
-    <a href="/auth/google_oauth2" class="auth_provider">
-      <%= image_tag "google_apps_64.png", size: "64x64", alt: "Google" %>
-      Google
-    </a>
+      <!--
+      <a href="/auth/twitter" class="auth_provider">
+        <%= image_tag "twitter_64.png", size: "64x64", alt: "Twitter" %>
+        Twitter
+      </a>
+      -->
+      <a href="/auth/facebook" class="auth_provider">
+        <%= image_tag "facebook_64.png", size: "64x64", alt: "Facebook" %>
+        Facebook
+      </a>
+      <a href="/auth/google_oauth2" class="auth_provider">
+        <%= image_tag "google_apps_64.png", size: "64x64", alt: "Google" %>
+        Google
+      </a>
+    </div>
   </div>
+  <div class="content">
+    <p>
+      <strong>Don't use these services?</strong>
+      <%= link_to "Create an account", new_identity_path %> or login below.
+    </p>
 
-  <p>
-    <strong>Don't use these services?</strong>
-    <%= link_to "Create an account", new_identity_path %> or login below.
-  </p>
-
-  <%= form_tag "/auth/identity/callback" do %>
-    <div class="clearfix">
-      <%= label_tag :auth_key, "Email" %>
-      <div class="input">
-        <%= text_field_tag :auth_key, nil, class: "xlarge", size: 30 %>
+    <%= form_tag "/auth/identity/callback" do %>
+      <div class="clearfix">
+        <%= label_tag :auth_key, "Email" %>
+        <div class="input">
+          <%= text_field_tag :auth_key, nil, class: "xlarge", size: 30 %>
+        </div>
       </div>
-    </div>
 
-    <div class="clearfix">
-      <%= label_tag :password, "Password" %>
-      <div class="input">
-        <%= password_field_tag :password, nil %>
+      <div class="clearfix">
+        <%= label_tag :password, "Password" %>
+        <div class="input">
+          <%= password_field_tag :password, nil %>
+        </div>
       </div>
-    </div>
-    <div class="actions">
-      <%= submit_tag "Login", class: "btn primary" %>
-    </div>
-  <% end %>
+      <div class="actions">
+        <%= submit_tag "Login", class: "btn primary" %>
+      </div>
+    <% end %>
+
 <% end %>
