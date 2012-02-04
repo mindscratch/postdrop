@@ -12,14 +12,16 @@
     <div class="topbar" data-dropdown="dropdown">
       <div class="topbar-inner">
         <div class="container-fluid">
-          <h3><a href="/">Post Drop</a></h3>
+          <h3><a href="<%= posts_url %>">Post Drop</a></h3>
+          <% if current_user && current_auth %>
           <ul class="nav secondary-nav">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle">Dropdown</a>
+              <a href="#" class="dropdown-toggle"><%= current_user.name %></a>
               <ul class="dropdown-menu">
                 <li><a href="#">Profile</a></li>
                 <li><%= link_to "Log out", signout_path %></li>
           </ul></li></ul>
+          <% end %>
         </div>
       </div><!-- /topbar-inner -->
     </div><!-- /topbar -->

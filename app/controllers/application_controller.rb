@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   def login_required
     if current_user.nil? && params[:controller] != "sessions"
       flash[:error] = "You must login first."
-      redirect_to root_url
+      redirect_to signin_url
     end
   end
 
@@ -31,5 +31,9 @@ class ApplicationController < ActionController::Base
     rescue Mongoid::Errors::DocumentNotFound
       @current_auth
     end
+  end
+
+  def logged_in?
+    !!current_auth && !!current_user
   end
 end

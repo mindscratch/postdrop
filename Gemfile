@@ -18,7 +18,7 @@ gem "mongoid", ">= 2.2.3"
 
 gem 'bcrypt-ruby', '~> 3.0.0'
 
-gem 'twitter-bootstrap-rails'
+gem "twitter-bootstrap-rails" #, "~> 2.0rc0", :group => :assets
 
 gem 'omniauth-identity'
 gem 'omniauth-twitter'

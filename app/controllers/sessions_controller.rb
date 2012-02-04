@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 
-skip_before_filter :login_required
+  skip_before_filter :login_required
 
   def new
   end
@@ -25,7 +25,7 @@ skip_before_filter :login_required
 
     session[:user_id] = user.id
     session[:auth_id] = auth.id
-    redirect_to root_url
+    redirect_to posts_url
   end
 
   def destroy
@@ -37,6 +37,6 @@ skip_before_filter :login_required
 
   def failure
     flash[:error] = 'Authentication failed, please try again.'
-    redirect_to root_url
+    redirect_to signin_url
   end
 end

@@ -2,10 +2,11 @@
 
   resources :posts
 
-  root :to => "sessions#new"
+  root :to => "home#index"
 
   match "/auth/:provider/callback" => "sessions#create"
   match "/auth/failure", to: "sessions#failure"
+  match "/login" => "sessions#new", :as => :signin
   match "/signout" => "sessions#destroy", :as => :signout
 
    resources :identities
