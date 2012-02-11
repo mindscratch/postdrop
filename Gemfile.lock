@@ -220,11 +220,10 @@ GEM
       faraday (~> 0.7)
       multi_json (~> 1.0)
       simple_oauth (~> 0.1)
-    twitter-bootstrap-rails (1.4.3)
-      actionpack
-      jquery-rails (>= 1.0)
-      less-rails (~> 2.1.0)
-      railties
+    twitter-bootstrap-rails (2.0rc0)
+      actionpack (>= 3.1)
+      less-rails (~> 2.1.2)
+      railties (>= 3.1)
     tzinfo (0.3.31)
     uglifier (1.2.3)
       execjs (>= 0.3.0)
@@ -257,5 +256,5 @@ DEPENDENCIES
   rspec-rails (>= 2.7.0)
   sass-rails (~> 3.1.4)
   twitter (~> 2.1.0)
-  twitter-bootstrap-rails
+  twitter-bootstrap-rails (~> 2.0rc0)
   uglifier (>= 1.0.3)

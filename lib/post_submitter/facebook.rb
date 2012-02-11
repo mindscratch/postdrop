@@ -1,6 +1,6 @@
 require 'fb_graph'
 
-module PostSubmitters
+module PostSubmitter
   class Facebook
     def submit(post, user, authentication)
       raise "Unable to submit post (id=#{post.id}) with #{self.class.name.split('::').last}: access token unknown" if authentication.access_token.nil?

@@ -41,13 +41,15 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(params[:post])
+    @post.posted_to = [:database]
 
     respond_to do |format|
       if @post.save
 
         # TODO put on a job queue
         # list of providers should come from <form>
-        result = PostSubmitters.submit_post @post, current_user, ['facebook']
+        result = PostSubmitter.submit_post @post, current_user, ['facebook', 'twitter']
+        @post.save unless @post.changes.empty?
         logger.debug "submitted post, result=#{result}"
 
         format.html {

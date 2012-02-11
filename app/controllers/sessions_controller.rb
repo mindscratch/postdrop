@@ -3,13 +3,15 @@ class SessionsController < ApplicationController
   skip_before_filter :login_required
 
   def new
+    puts "NEW: #{request.url}"
   end
 
   def create
+    puts "CREATE: #{request.url}"
     omniauth_hash = env['omniauth.auth']
 
     auth = Authentication.from_omniauth(omniauth_hash)
-    user = User.from_omniauth(omniauth_hash)
+    user = current_user || User.from_omniauth(omniauth_hash)
     new_user = !user.persisted?
 
     user.save unless user.changes.empty?
@@ -25,7 +27,14 @@ class SessionsController < ApplicationController
 
     session[:user_id] = user.id
     session[:auth_id] = auth.id
-    redirect_to posts_url
+
+    unless session[:route_after_oauth].nil?
+      path = session[:route_after_oauth]
+      session[:route_after_oauth] = nil
+      redirect_to path
+    else
+      redirect_to posts_url
+    end
   end
 
   def destroy

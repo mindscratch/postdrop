@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   #######
 
   def login_required
-    if current_user.nil? && params[:controller] != "sessions"
+    unless logged_in? && params[:controller] != "sessions"
       flash[:error] = "You must login first."
       redirect_to signin_url
     end

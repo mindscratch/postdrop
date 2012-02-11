@@ -1,8 +1,12 @@
  PostDrop::Application.routes.draw do
 
+  get "users/profile"
+
   resources :posts
 
   root :to => "home#index"
+
+  post "authentications/:provider", to: "authentications#create"
 
   match "/auth/:provider/callback" => "sessions#create"
   match "/auth/failure", to: "sessions#failure"

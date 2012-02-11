@@ -1,6 +1,4 @@
-<h1>Editing post</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+<%= form_for @post, :url => post_path(@post), :html => { :class => "edit_post", :id => "edit_post" } do |f| -%>
+  <input name="_method" type="hidden" value="put" />
+  <%= render :partial => "form", :locals => {:f => f} %>
+<% end -%>
